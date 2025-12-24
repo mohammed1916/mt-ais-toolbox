@@ -4,6 +4,10 @@
 ## Overview
 
  This document provides a brief overview of process, as well as the data and tools required, to generate density maps using "Marinetraffic AIS toolbox". The data used in this overview are decoded historical Automatic Identification System (AIS) data.
+
+python -m mt.cleaning.ais_merge config/config.json
+python -m mt.cleaning.data_cleaning config/config.json
+python -m mt.density.export_density_maps config/config.json
  
 
 
