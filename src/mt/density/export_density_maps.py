@@ -56,7 +56,7 @@ class RasterConverter:
                 with open(Path(f"{filename[:-4]}.vrt"), "w",encoding='utf-8') as f:
                     f.write(vrt_context)
 
-                cmd = f"gdal_rasterize -tr {step} {step} -a_nodata {no_data} -te {str(geometry_bound)[1:-1]} -a_srs {srs} -ot Float32 -a {col} {filename[:-4]}.vrt {filename[:-4]}.tif"
+                cmd = f"gdal_rasterize -tr {step} {step} -a_nodata {no_data} -te {' '.join(map(str, geometry_bound))} -a_srs {srs} -ot Float32 -a {col} {filename[:-4]}.vrt {filename[:-4]}.tif"
                 print(cmd)
                 subprocess.call(cmd, shell=True)
                 if os.path.exists(colors_path_absolute):

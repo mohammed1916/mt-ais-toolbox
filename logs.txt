@@ -1,0 +1,61 @@
+mt-ais-toolbox  python -m mt.cleaning.data_cleaning config/config.json       
+WARNING:root:   Loading sea geometries.
+WARNING:root:   Loaded geometries for land mask.
+WARNING:root:   Loaded land mask.
+
+WARNING:root:           Cleaning time: 14.89803171157837
+ mt-ais-toolbox  python -m mt.density.export_density_maps config/config.json  
+        Calculating density for grid cell size: 1000
+        Loading sea geometries
+        Generating Grids for grid_edge_length: 1.0km
+        Boundaries: [5438, 1587, 5804, 1939]
+        Generated 129551 cells
+                Exec. time: 5sec
+        Intersected sea geometries with the grids.
+                Exec. time: 0sec
+        Saved grid in data/samples/99_metadata/gridsWithSea_3035_1000.json.
+WARNING:root:   Estimating density, using the metric: "time_at_cells" ...
+WARNING:root:Density calculation submitting file 555532553 
+WARNING:root:Density calculation submitting file 555532554 
+WARNING:root:Density calculation submitting file 555532555 
+WARNING:root:   Calculated density.
+WARNING:root:           Calculating density time: 11.310877084732056 
+WARNING:root:   Saved density results at: data/samples/03_density/density_time_at_cells_1000
+        Creating map files for grid cell size: 1000
+C:\Users\BBBS-AI-01\d\anomaly\mt-ais-toolbox
+gdal_rasterize -tr 1000 1000 -a_nodata -9999 -te 943000, -375000, 7601000, 6825000 -a_srs EPSG:3035 -ot Float32 -a density density_time_at_cells_1000_All.vrt density_time_at_cells_1000_All.tif
+'gdal_rasterize' is not recognized as an internal or external command,
+operable program or batch file.
+'gdaldem' is not recognized as an internal or external command,
+operable program or batch file.
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\BBBS-AI-01\d\anomaly\mt-ais-toolbox\src\mt\density\export_density_maps.py", line 113, in <module>
+    export_denity_map(config, "")
+  File "C:\Users\BBBS-AI-01\d\anomaly\mt-ais-toolbox\src\mt\density\export_density_maps.py", line 93, in export_denity_map
+    RasterConverter().csv_to_tiff(
+  File "C:\Users\BBBS-AI-01\d\anomaly\mt-ais-toolbox\src\mt\density\export_density_maps.py", line 65, in csv_to_tiff
+    os.remove(f"{filename[:-4]}.tif")
+FileNotFoundError: [WinError 2] The system cannot find the file specified: 'density_time_at_cells_1000_All.tif'
+ mt-ais-toolbox  cd C:\Users\BBBS-AI-01\d\anomaly\mt-ais-toolbox\data\samples\03_density ; Get-Content density_time_at_cells_1000_All.csv | Select-Object -First 20
+density,gridID,lon_centroid,lat_centroid
+0.027774172239541792,5519_1752,5519500.0,1752500.0
+0.027774172239541792,5519_1752,5519500.0,1752500.0
+0.027774172239541792,5519_1752,5519500.0,1752500.0
+0.027774172239541792,5519_1752,5519500.0,1752500.0
+0.027774172239541792,5519_1752,5519500.0,1752500.0
+0.027774172239541792,5519_1752,5519500.0,1752500.0
+0.2645352357455147,5519_1753,5519500.0,1753500.0
+0.2645352357455147,5519_1753,5519500.0,1753500.0
+0.2645352357455147,5519_1753,5519500.0,1753500.0
+0.2645352357455147,5519_1753,5519500.0,1753500.0
+1.3491078616010674,5519_1754,5519500.0,1754500.0
+1.3491078616010674,5519_1754,5519500.0,1754500.0
+1.3491078616010674,5519_1754,5519500.0,1754500.0
+1.3491078616010674,5519_1754,5519500.0,1754500.0
+1.3491078616010674,5519_1754,5519500.0,1754500.0
+1.3491078616010674,5519_1754,5519500.0,1754500.0
+1.285085343514356,5519_1755,5519500.0,1755500.0
+1.285085343514356,5519_1755,5519500.0,1755500.0
+1.285085343514356,5519_1755,5519500.0,1755500.0

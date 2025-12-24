@@ -89,10 +89,13 @@ if __name__ == "__main__":
     import sys
     import glob
     import psutil
+    import platform
 
-    p = psutil.Process()
-    soft, hard = p.rlimit(psutil.RLIMIT_NOFILE)
-    p.rlimit(psutil.RLIMIT_NOFILE, (hard, hard))
+    # Set file limit only on Unix-like systems
+    if platform.system() != 'Windows':
+        p = psutil.Process()
+        soft, hard = p.rlimit(psutil.RLIMIT_NOFILE)
+        p.rlimit(psutil.RLIMIT_NOFILE, (hard, hard))
     
     config_file = open(sys.argv[1], "r",encoding="utf-8")
     CONFIG = json.load(config_file)
