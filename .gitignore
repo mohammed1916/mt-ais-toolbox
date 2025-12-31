@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# large output files
+data/samples/99_metadata/gridsWithSea_3035_1000.json
+data/samples/03_density/density_time_at_cells_1000_All_colored.tif
