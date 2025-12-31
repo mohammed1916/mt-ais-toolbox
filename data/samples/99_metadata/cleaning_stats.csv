@@ -1,0 +1,4 @@
+mmsi,total_rows,output_rows,rem_empty_fields,rem_movement_fields,rem_mmsi,rem_land_mask,rem_downsampling,rem_noise,rem_timeframe
+555532553,997,605,0,0,0,0,392,0,0
+555532554,1001,588,0,0,0,0,412,1,0
+555532555,999,584,0,0,0,0,415,0,0
